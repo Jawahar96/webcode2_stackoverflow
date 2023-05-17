@@ -22,7 +22,7 @@ function Index(res) {
   
     }
   }
-  getQuestion();
+  getQuestion(question);
   
   },[])
   return (

@@ -3,6 +3,7 @@ import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 import './Question.css'
 import axios from 'axios'
+import { useHistory } from 'react-router-dom'
 // import { TagsInput } from 'react-tag-input-component'
 
 function Question() {
@@ -10,6 +11,7 @@ function Question() {
   const [question,setQuestion]=useState([])
   const [tag,setTag]=useState([])
   const [body,setBody]=useState([])
+  const history = useHistory()
 
   
   let toolbarOption =  [
@@ -54,6 +56,7 @@ function Question() {
         };
         await  axios.post(`/${env.api}/question`,bodyJson).then((res)=>{
           alert("Question can be added successfully")
+          history.push('/')
         })
         .catch((error)=>{
           console.log(error);
